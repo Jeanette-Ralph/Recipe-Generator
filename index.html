@@ -13,10 +13,11 @@
         <h1>RecipEat</h1>
         <p>Your one stop shop for finding recipes based on what ingredients you have on hand</p>
     </header>
-    <div class="search-form">
-        <form id="ingredient-search">
+    <div class="ingredient-search-container">
+        <form id="user-form">
             <p>Please enter your ingredients separated by commas below:</p>
-            <input type="text" id="ingredients" placeholder="enter your ingredients here separated by commas">
+            <!-- changed id for ingredient in put to q -->
+            <input type="text" id="q" placeholder="enter your ingredients here separated by commas">
             <button type="submit" id="search-btn">Search</button>
             <button type="clear" id="clear-btn">Clear</button>
         </form>
@@ -27,5 +28,6 @@
     </div>
     <div id="ingredient-search-history"></div> <!-- use local storage to append saved ingredients here -->
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="assets/script.js"></script>
 </html>
