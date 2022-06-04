@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- added link to bulma link to source: https://bulma.io/documentation/overview/start/ -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- added link to bulma link to source: https://bulma.io/documentation/overview/start/ -->
     <link rel="stylesheet" href="assets/style.css">
     <title>RecipEat</title>
 </head>
@@ -13,6 +13,19 @@
         <h1>RecipEat</h1>
         <p>Your one stop shop for finding recipes based on what ingredients you have on hand</p>
     </header>
+    <div class="search-form">
+        <form id="ingredient-search">
+            <p>Please enter your ingredients separated by commas below:</p>
+            <input type="text" id="ingredients" placeholder="enter your ingredients here separated by commas">
+            <button type="submit" id="search-btn">Search</button>
+            <button type="clear" id="clear-btn">Clear</button>
+        </form>
+    </div>
+    <div id="recipe-results"> <!-- Use Bulma or CSS flex box or grid to move this section as a column to the right -->
+        <h2>Your recipe results:</h2>
+        <!-- recipes will populate here upon clicking search using javascript createElement -->
+    </div>
+    <div id="ingredient-search-history"></div> <!-- use local storage to append saved ingredients here -->
 </body>
 <script src="assets/script.js"></script>
 </html>
