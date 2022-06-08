@@ -52,20 +52,21 @@ function displayRecipes(fourRecipes) {
     }
 
 }
+
 //event listener for submit button
 formEl.addEventListener("submit", getAPI);
 
-// adding event listener to submit button in search form
-var searchBtn = document.getElementById('search-btn').addEventListener('click', saveIngredients);
+// adding event listener to submit button to save ingredients to local storage
+submitBtn.addEventListener('click', saveIngredients);
 
-var searchHistory = document.getElementById('ingredient-search-history');
+// var searchResults = document.getElementById('ingredient-search-history');
 
 // saving the input to local storage 
-// appending the input from local storage to the ingreedients search history div
+// appending the input from local storage to the ingredients search history div
 function saveIngredients() {
 
     // getting input from the input tag id 
-    var input = document.getElementById('ingredients').value;
+    var input = document.getElementById('q').value;
 
     // setting items to a key and value in local storage
     localStorage.setItem('ingredients-list', input);
@@ -73,30 +74,22 @@ function saveIngredients() {
     // retrieving thee item from local storage
     input = localStorage.getItem('ingredients-list');
 
-}
-
-function searchHistory() {
-    // might need an empty array to append the input ?
+    // var for div where the ingredients will get appended to
+    var searchHistory = document.getElementById('ingredient-search-history');
 
     // creating li element to append ingredients from local storage to
     var ingredientsList = document.createElement('li');
 
-    input = document.getElementById('ingredient-search-history').textContent;
+    // adding text content to the input 
+    ingredientsList.textContent = input;
 
-    // creating text of input values
-    var ingredients = document.innerText(input);
+    // appending ingredientsList to the main div 
+    searchHistory.appendChild(ingredientsList);
 
-    // appending ingredients to ingredientsList
+    // need it to stay on page
 
-    ingredientsList.appendChild(ingredients);
-
-    // creating variabale for ingredient-search-history div 
-
-    var searchHistory = document.getElementById('ingredient-search-history');
-
-    // appending the li element with the ingredients list to the main div 
-    searchHistory.appendChild('li');
 }
+
 
 
 
