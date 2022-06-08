@@ -18,54 +18,9 @@ function getAPI(event) {
             return response.json();
         }).then(function (data) {
             console.log(data);
-
-        })
-        .then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            console.log(data);
             displayRecipes(data.hits); // feeds data specific to matching recipes to the display recipes function
-
         });
-}
-
-function displayRecipes(fourRecipes) {
-    for (var i = 0; i < 4; i++) {
-        console.log(fourRecipes[i])
-        var card = document.createElement("div");
-        var recipeName = document.createElement('h4');
-        var recipeImage = document.createElement('img');
-        var recipeServes = document.createElement('p');
-        var healthLabels = document.createElement('p');
-        recipeName.innerText = fourRecipes[i].recipe.label;
-        recipeServes.innerText = "Servings: " + fourRecipes[i].recipe.yield;
-        healthLabels.innerText = fourRecipes[i].recipe.healthLabels[0,1,2,3,4,5,6,7]; // returns some health labels we did not ask for
-        var recipeImageLocation = fourRecipes[i].recipe.image;
-        console.log(recipeImageLocation) // is a valid URL to recipe image
-        card.appendChild(recipeName);
-        card.appendChild(recipeServes);
-        card.appendChild(healthLabels);
-        card.appendChild(recipeImage); // figure out how to wrap an anchor tag around the appended image so that you can follow the link  to the recipe.
-
-        recipeImage.setAttribute("src", recipeImageLocation);
-        recipeResults.appendChild(card);
-    }
-
-}
-
-//event listener for submit button
-formEl.addEventListener("submit", getAPI);
-
-// adding event listener to submit button to save ingredients to local storage
-submitBtn.addEventListener('click', saveIngredients);
-
-// var searchResults = document.getElementById('ingredient-search-history');
-
-// saving the input to local storage 
-// appending the input from local storage to the ingredients search history div
-function saveIngredients() {
-
-    // getting input from the input tag id 
+         // getting input from the input tag id 
     var input = document.getElementById('q').value;
 
     // setting items to a key and value in local storage
@@ -87,8 +42,46 @@ function saveIngredients() {
     searchHistory.appendChild(ingredientsList);
 
     // need it to stay on page
+}
+
+function displayRecipes(fourRecipes) {
+    for (var i = 0; i < 4; i++) {
+        console.log(fourRecipes[i])
+        var card = document.createElement("div");
+        var recipeName = document.createElement('h4');
+        var recipeImage = document.createElement('img');
+        var recipeServes = document.createElement('p');
+        var healthLabels = document.createElement('p');
+        recipeName.innerText = fourRecipes[i].recipe.label;
+        recipeServes.innerText = "Servings: " + fourRecipes[i].recipe.yield;
+        healthLabels.innerText = fourRecipes[i].recipe.healthLabels[0,1,2,3,4,5,6,7]; // returns some health labels we did not ask for
+        var recipeImageLocation = fourRecipes[i].recipe.image;
+        console.log(recipeImageLocation) // is a valid URL to recipe image
+        card.appendChild(recipeName);
+        card.appendChild(recipeServes);
+        card.appendChild(healthLabels);
+        card.appendChild(recipeImage); // figure out how to wrap an anchor tag around the appended image so that you can follow the link  to the recipe.
+        recipeImage.setAttribute("src", recipeImageLocation);
+        recipeResults.appendChild(card);
+    }
 
 }
+
+//event listener for submit button
+formEl.addEventListener("submit", getAPI);
+
+// adding event listener to submit button to save ingredients to local storage
+// submitBtn.addEventListener('click', saveIngredients);
+
+// var searchResults = document.getElementById('ingredient-search-history');
+
+// saving the input to local storage 
+// appending the input from local storage to the ingredients search history div
+// function saveIngredients() {
+
+   
+
+// }
 
 
 
