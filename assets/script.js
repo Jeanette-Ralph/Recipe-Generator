@@ -30,15 +30,15 @@ function displayRecipes(fourRecipes) {
         var recipeName = document.createElement('h4');
         var recipeImage = document.createElement('img');
         var recipeServes = document.createElement('p');
-        var recipeTime =document.createElement('p');
+        var healthLabels = document.createElement('p');
         recipeName.innerText = fourRecipes[i].recipe.label;
         recipeServes.innerText = "Servings: " + fourRecipes[i].recipe.yield;
-        recipeTime.innerText = "Prep Time: " + fourRecipes[i].recipe.totalTime + " minutes";
+        healthLabels.innerText = fourRecipes[i].recipe.healthLabels[0,1,2,3,4,5,6,7]; // returns some health labels we did not ask for
         var recipeImageLocation = fourRecipes[i].recipe.image;
         console.log(recipeImageLocation) // is a valid URL to recipe image
         card.appendChild(recipeName);
         card.appendChild(recipeServes);
-        card.appendChild(recipeTime);
+        card.appendChild(healthLabels);
         card.appendChild(recipeImage); // figure out how to wrap an anchor tag around the appended image so that you can follow the link  to the recipe.
         
         recipeImage.setAttribute("src", recipeImageLocation);
