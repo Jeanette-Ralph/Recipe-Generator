@@ -14,13 +14,19 @@ function getAPI(event) {
     var q = $('#q').val(); // #q renamed from 'ingredients-list'
     var queryURL = endpointURL + "q=" + q + "&app_id=" + appID + '&app_key=' + appKey + '&from=0&to=4'; // last param specifically calling for 4 recipes
     fetch(queryURL)
-    .then(function(response){
-        return response.json();
-    }).then(function(data){
-        console.log(data);
-        displayRecipes(data.hits); // feeds data specific to matching recipes to the display recipes function
-        
-    });
+        .then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+
+        })
+        .then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            displayRecipes(data.hits); // feeds data specific to matching recipes to the display recipes function
+
+        });
 }
 
 function displayRecipes(fourRecipes) {
@@ -30,7 +36,7 @@ function displayRecipes(fourRecipes) {
         var recipeName = document.createElement('h4');
         var recipeImage = document.createElement('img');
         var recipeServes = document.createElement('p');
-        var recipeTime =document.createElement('p');
+        var recipeTime = document.createElement('p');
         recipeName.innerText = fourRecipes[i].recipe.label;
         recipeServes.innerText = "Servings: " + fourRecipes[i].recipe.yield;
         recipeTime.innerText = "Prep Time: " + fourRecipes[i].recipe.totalTime + " minutes";
@@ -40,12 +46,51 @@ function displayRecipes(fourRecipes) {
         card.appendChild(recipeServes);
         card.appendChild(recipeTime);
         card.appendChild(recipeImage); // figure out how to wrap an anchor tag around the appended image so that you can follow the link  to the recipe.
-        
+
         recipeImage.setAttribute("src", recipeImageLocation);
         recipeResults.appendChild(card);
     }
 
 }
+
 //event listener for submit button
 formEl.addEventListener("submit", getAPI);
+
+// adding event listener to submit button to save ingredients to local storage
+submitBtn.addEventListener('click', saveIngredients);
+
+// var searchResults = document.getElementById('ingredient-search-history');
+
+// saving the input to local storage 
+// appending the input from local storage to the ingredients search history div
+function saveIngredients() {
+
+    // getting input from the input tag id 
+    var input = document.getElementById('q').value;
+
+    // setting items to a key and value in local storage
+    localStorage.setItem('ingredients-list', input);
+
+    // retrieving thee item from local storage
+    input = localStorage.getItem('ingredients-list');
+
+    // var for div where the ingredients will get appended to
+    var searchHistory = document.getElementById('ingredient-search-history');
+
+    // creating li element to append ingredients from local storage to
+    var ingredientsList = document.createElement('li');
+
+    // adding text content to the input 
+    ingredientsList.textContent = input;
+
+    // appending ingredientsList to the main div 
+    searchHistory.appendChild(ingredientsList);
+
+    // need it to stay on page
+
+}
+
+
+
+
 
