@@ -32,21 +32,26 @@
                 </form>
             </div>
 
-            <div class="results tile is-parent column" >
-                <div class="tile is-child notification  box is-12" id="recipe-results">
+            <div class="results tile is-parent column" id="recipe-results">
+                <article class="tile is-child notification  box is-12">
                     <!-- Use Bulma or CSS flex box or grid to move this section as a column to the right -->
                     <h2 class="content title">Your recipe results:</h2>
-                  <!--   recipes will populate here upon clicking search using javascript createElement -->
-                </div>
+                    <!-- recipes will populate here upon clicking search using javascript createElement -->
+                </article>
             </div>
         </div>
-        <div id="ingredient-search-history tile is-parent column">
-            <h3 class="history subtitle tile is-child notification is-primary box is-12">Recently Searched: </h3>
+        <div>
+            <h3 class="history subtitle tile is-child notification is-primary box is-12" id="ingredient-search-history">
+                Recently
+                Searched: </h3>
         </div> <!-- use local storage to append saved ingredients here -->
     </div>
     </div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="assets/script.js"></script>
 
 </html>
+
+<!-- tile is-parent column is in the id for line -->
