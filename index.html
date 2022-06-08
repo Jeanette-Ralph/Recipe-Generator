@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- added link to bulma link to source: https://bulma.io/documentation/overview/start/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- added link to bulma link to source: https://bulma.io/documentation/overview/start/ -->
     <link rel="stylesheet" href="assets/style.css">
     <title>RecipEat</title>
 </head>
+
 <body>
-    <header>
-        <h1>RecipEat</h1>
-        <p>Your one stop shop for finding recipes based on what ingredients you have on hand</p>
+
+    <header class="bulma-overlay-mixin-parent">
+        <div class="bulma-overlay-mixin">
+            <h1>RecipEat</h1>
+            <p>Your one stop shop for finding recipes based on what ingredients you have on hand</p>
+        </div>
     </header>
     <div>
-    <div class="ingredient-search-container">
-        <form id="user-form">
-            <p>Please enter your ingredients separated by commas below:</p>
-            <!-- changed id for ingredient in put to q -->
-            <input type="text" id="q" placeholder="enter your ingredients here separated by commas">
-            <button type="submit" id="search-btn">Search</button>
-            <button type="clear" id="clear-btn">Clear</button>
-        </form>
+        <div class="ingredient-search-container">
+            <form id="user-form">
+                <p>Please enter your ingredients separated by commas below:</p>
+                <!-- changed id for ingredient in put to q -->
+                <input type="text" id="q" placeholder="enter your ingredients here separated by commas">
+                <button type="submit" id="search-btn">Search</button>
+                <button type="clear" id="clear-btn">Clear</button>
+            </form>
+            <div class="tile is-ancestor">
+                <div class="ingredient-search-container tile is-4 is-vertical is-parent control">
+                    <form class="tile is-child box" id="user-form">
+                        <p class="subtitle">Please enter your ingredients separated by commas below:</p>
+                        <!-- changed id for ingredient in put to q -->
+                        <input class="input is-primary block" type="text" id="q"
+                            placeholder="enter your ingredients here separated by commas">
+                        <button class="button is-rounded mx-6 is-link" type="submit" id="search-btn">Search</button>
+                        <button class="button is-rounded mx-2 is-link is-light" type="clear"
+                            id="clear-btn">Clear</button>
+                    </form>
+                </div>
+
+                <div class="results tile is-parent column" id="recipe-results">
+                    <article class="tile is-child notification  box is-12">
+                        <!-- Use Bulma or CSS flex box or grid to move this section as a column to the right -->
+                        <h2 class="content title">Your recipe results:</h2>
+                        <!-- recipes will populate here upon clicking search using javascript createElement -->
+                    </article>
+                </div>
+            </div>
+            <div id="ingredient-search-history tile is-parent column">
+                <h3 class="history subtitle tile is-child notification is-primary box is-12">Recently Searched: </h3>
+            </div> <!-- use local storage to append saved ingredients here -->
+        </div>
     </div>
-    <div id="recipe-results"> <!-- Use Bulma or CSS flex box or grid to move this section as a column to the right -->
-        <h2>Your recipe results:</h2>
-        <!-- recipes will populate here upon clicking search using javascript createElement -->
-    </div>
-    <div id="ingredient-search-history"></div> <!-- use local storage to append saved ingredients here -->
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="assets/script.js"></script>
+
 </html>
