@@ -1,4 +1,10 @@
 * {
     box-sizing: 0px;
+    margin: 15px;
     
+}
+
+#recipe-results div {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
