@@ -14,37 +14,38 @@
 <body>
 
     <header class="bulma-overlay-mixin-parent">
-        <div class="bulma-overlay-mixin">
+        <div class="bulma-overlay-mixin title">
             <h1>RecipEat</h1>
-            <p>Your one stop shop for finding recipes based on what ingredients you have on hand</p>
+            <p class="create subtitle is-3">Create your treat!</p>
         </div>
     </header>
     <div>
         <div class="tile is-ancestor">
             <div class="ingredient-search-container tile is-4 is-vertical is-parent control">
+                
                 <form class="tile is-child box" id="user-form">
-                    <p class="subtitle">Please enter your ingredients separated by commas below:</p>
+                    <!-- <p class="subtitle">Please enter your ingredients separated by commas below:</p> -->
                     <!-- changed id for ingredient in put to q -->
                     <input class="input is-primary block" type="text" id="q"
-                        placeholder="enter your ingredients here separated by commas">
-                    <button class="button is-rounded mx-6 is-link" type="submit" id="search-btn">Search</button>
-                    <button class="button is-rounded mx-2 is-link is-light" type="clear" id="clear-btn">Clear</button>
+                        placeholder="Enter ingredients here Ex. avocado, chicken, rice">
+                    <button class="button is-rounded is-link" type="submit" id="search-btn">Search</button>
+                    <h3 id="ingredient-search-history"> 
+                        Recently Searched:</h3>
                 </form>
+            
             </div>
-
+           
             <div class="results tile is-parent column">
-                <article class="tile is-child notification box is-12" id="recipe-results"> 
+              
+                <article class="tile is-child notification box is-12" >
                     <!-- Use Bulma or CSS flex box or grid to move this section as a column to the right -->
-                    <h2 class="content title">Your recipe results:</h2>
+                    <h2 class="content title is-4">Your Recipe Results:</h2>
+                 <span id="recipe-results"> </span>   
                     <!-- recipes will populate here upon clicking search using javascript createElement -->
                 </article>
             </div>
         </div>
-        <div>
-            <h3 class="history subtitle tile is-child notification is-primary box is-12" id="ingredient-search-history">
-                Recently
-                Searched: </h3>
-        </div> <!-- use local storage to append saved ingredients here -->
+         <!-- use local storage to append saved ingredients here -->
     </div>
     </div>
 
