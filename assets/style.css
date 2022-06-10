@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400&family=Montserrat:ital,wght@0,100;0,700;1,200;1,400&family=Pompiere&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400&family=Carter+One&family=Montserrat:ital,wght@0,100;0,700;1,200;1,400&family=Pompiere&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400&family=Carter+One&family=Kaushan+Script&family=Montserrat:ital,wght@0,100;0,700;1,200;1,400&family=Pompiere&family=Satisfy&display=swap');
 
 .bulma-overlay-mixin {
     @include overlay(1.5rem);
@@ -12,15 +12,50 @@
 h1{  
 font-family: 'Carter One', cursive;
 font-weight: bolder;
-font-size: 55px;
+font-size: 48px;
+letter-spacing: 2px;
 }
 
+.create {
+font-family: 'Satisfy', cursive;
+color: darkcyan;
+letter-spacing: 3px;
+}
+
+h2{
+font-family: 'Assistant', sans-serif;
+color: darkcyan;
+letter-spacing: 3px;
+}
+
+h3{
+ font-family: 'Assistant', sans-serif;
+color: darkcyan;
+letter-spacing: 3px;
+}
+
+#recipe-results{
+flex-wrap: wrap;
+display: flex;
+font-family: 'Assistant', sans-serif;
+overflow-wrap: wrap;
+}
+
+h4{
+  font-family: 'Assistant', sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+}
 
 header {
      text-align: center; 
   }
 
-* {
-    /* box-sizing: 0px; */
-    font-family: 'Assistant', sans-serif; 
-}
+  #ingredient-search-history li {
+    list-style: none;
+    font-family: 'Assistant', sans-serif;
+  }
+
+
+
+
