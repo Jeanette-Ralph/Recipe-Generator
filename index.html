@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <!-- added link to bulma link to source: https://bulma.io/documentation/overview/start/ -->
     <link rel="stylesheet" href="assets/style.css">
     <title>RecipEat</title>
 </head>
@@ -22,30 +21,30 @@
     <div>
         <div class="tile is-ancestor">
             <div class="ingredient-search-container tile is-4 is-vertical is-parent control">
-                
+
                 <form class="tile is-child box" id="user-form">
-                    <!-- <p class="subtitle">Please enter your ingredients separated by commas below:</p> -->
-                    <!-- changed id for ingredient in put to q -->
                     <input class="input is-primary block" type="text" id="q"
                         placeholder="Enter ingredients here Ex. avocado, chicken, rice">
                     <button class="button is-rounded is-link" type="submit" id="search-btn">Search</button>
-                    <h3 id="ingredient-search-history"> 
+                    <button class='button is-rounded mx-2 is-link is-light' onClick="window.location.reload();"
+                        type="button" id="refresh-btn">Refresh</button>
+                    <!-- HTML code for adding refresh button -->
+                    <h3 id="ingredient-search-history">
                         Recently Searched:</h3>
                 </form>
-            
+
             </div>
-           
+
             <div class="results tile is-parent column">
-              
-                <article class="tile is-child notification box is-12" >
-                    <!-- Use Bulma or CSS flex box or grid to move this section as a column to the right -->
+
+                <article class="tile is-child notification box is-12">
                     <h2 class="content title is-4">Your Recipe Results:</h2>
-                 <span id="recipe-results"> </span>   
+                    <span id="recipe-results"> </span>
                     <!-- recipes will populate here upon clicking search using javascript createElement -->
                 </article>
             </div>
         </div>
-         <!-- use local storage to append saved ingredients here -->
+        <!-- use local storage to append saved ingredients here -->
     </div>
     </div>
 
@@ -54,5 +53,3 @@
 <script src="assets/script.js"></script>
 
 </html>
-
-<!-- tile is-parent column is in the id for line -->
