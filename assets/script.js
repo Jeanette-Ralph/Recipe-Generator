@@ -9,6 +9,55 @@ var appID = "9b63d55f";
 var submitBtn = document.querySelector("#search-btn");
 var clearBtn = document.querySelector("#clear-btn");
 
+function searchHistory(q) {
+
+    console.log(q);
+    // get items from local storage, if there are nothing in local storage set to empty array, need JSON parsing it from a string
+    var searchedIngredients = JSON.parse(localStorage.getItem('ingredients-list')) || [];
+
+    // pushing new values to the array
+    searchedIngredients.push(q);
+
+    // reset local history, JSON to put it in back to string in local storage
+    localStorage.setItem('ingredients-list', JSON.stringify(searchedIngredients));
+
+    renderSearchHistory();
+
+}
+
+function renderSearchHistory() {
+
+    var searchHistory = document.getElementById('ingredient-search-history');
+
+    // creating the list wrapper for ingredients to go in
+    var ingredientsList = document.createElement('ul');
+
+    // need to make the div empty, so the ingredients don't append to the page on load
+    searchHistory.innerHTML = '';
+
+    // need JSON parsing it from a string
+    var searchedIngredients = JSON.parse(localStorage.getItem('ingredients-list')) || [];
+
+    // baclwards loop so that the most recent search history is on the top
+    for (var i = searchedIngredients.length - 1; i >= 0; i--) {
+
+        // creating li element to append ingredients from local storage to
+        var ingredient = document.createElement('li');
+
+        // the ingredients are then set to the index value of the searched ingredients
+        ingredient.textContent = searchedIngredients[i];
+
+        // appending the ingredient to the ingredientList
+        ingredientsList.appendChild(ingredient);
+
+    }
+
+    // appending ingredientsList to the main div 
+    searchHistory.appendChild(ingredientsList);
+
+
+}
+
 function getAPI(event) {
     event.preventDefault();
     var q = $('#q').val(); // #q renamed from 'ingredients-list'
@@ -19,29 +68,10 @@ function getAPI(event) {
         }).then(function (data) {
             console.log(data);
             displayRecipes(data.hits); // feeds data specific to matching recipes to the display recipes function
+            searchHistory(q);
+
         });
-         // getting input from the input tag id 
-    var input = document.getElementById('q').value;
 
-    // setting items to a key and value in local storage
-    localStorage.setItem('ingredients-list', input);
-
-    // retrieving thee item from local storage
-    input = localStorage.getItem('ingredients-list');
-
-    // var for div where the ingredients will get appended to
-    var searchHistory = document.getElementById('ingredient-search-history');
-
-    // creating li element to append ingredients from local storage to
-    var ingredientsList = document.createElement('li');
-
-    // adding text content to the input 
-    ingredientsList.textContent = input;
-
-    // appending ingredientsList to the main div 
-    searchHistory.appendChild(ingredientsList);
-
-    // need it to stay on page
 }
 
 function displayRecipes(fourRecipes) {
@@ -54,7 +84,7 @@ function displayRecipes(fourRecipes) {
         var healthLabels = document.createElement('p');
         recipeName.innerText = fourRecipes[i].recipe.label;
         recipeServes.innerText = "Servings: " + fourRecipes[i].recipe.yield;
-        healthLabels.innerText = fourRecipes[i].recipe.healthLabels[0,1,2,3,4,5,6,7]; // returns some health labels we did not ask for
+        healthLabels.innerText = fourRecipes[i].recipe.healthLabels[0, 1, 2, 3, 4, 5, 6, 7]; // returns some health labels we did not ask for
         var recipeImageLocation = fourRecipes[i].recipe.image;
         console.log(recipeImageLocation) // is a valid URL to recipe image
         card.appendChild(recipeName);
@@ -69,19 +99,8 @@ function displayRecipes(fourRecipes) {
 
 //event listener for submit button
 formEl.addEventListener("submit", getAPI);
+renderSearchHistory();
 
-// adding event listener to submit button to save ingredients to local storage
-// submitBtn.addEventListener('click', saveIngredients);
-
-// var searchResults = document.getElementById('ingredient-search-history');
-
-// saving the input to local storage 
-// appending the input from local storage to the ingredients search history div
-// function saveIngredients() {
-
-   
-
-// }
 
 
 

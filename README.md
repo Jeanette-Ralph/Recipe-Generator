@@ -1,29 +1,20 @@
 # RecipEat
-Recipe finder based on ingredients entered by the user
-
 RecipEat
 
 Project Description:
-In this application we will be asking the user to input ingredients they have. 
-Utilize local storage in some way
-Make more unique in some way
-Quick meals for weekdays
+In this application we will be asking the user to input ingredients and based off of the users input four recipes will appear per search to the right side of the window. Any additional new searches will be added to the window. The users ingredient search history is also saved to local storage and displays on the page under previously searched. The application also utilizes two different API's, the main one being Edamam for recipe searches and Spoonacular for ingredient substitution searches.
 
-User Story:
-As a hungry user when I arrive to the landing page I am able to see that I can input my ingredients in input forms, so that I can cook and eat it 
-When I click the submit button
-Then I am presented with a list of recipes that include the ingredients that I entered
+Technologies Used:
+- CSS framework: Bulma
+- API's: Edamam, Spoonacular
+- Javascript, HTML
 
-Our server side APIs:
-Tasty (https://rapidapi.com/apidojo/api/tasty/) 
-Zestful (https://zestfuldata.com/) (for parsing ingredients list)
-Edamam (https://developer.edamam.com/edamam-docs-recipe-api) recipe searcher
+Link to Deployed Application:
+[Deployed Application](https://alexap2022.github.io/RecipEat/)
 
-CSS framework other than Bootstrap
-Bulma (https://bulma.io/) 
+Screenshots of Deployed Application:
 
-Project Due Dates: 
-HTML
-CSS
-JS 
+
+
+
 

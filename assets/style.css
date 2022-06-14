@@ -2,25 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400&family=Carter+One&family=Montserrat:ital,wght@0,100;0,700;1,200;1,400&family=Pompiere&display=swap');
 
 .bulma-overlay-mixin {
-    @include overlay(1.5rem);
-    background-color: darkorange;
-    color: white;
-    opacity: 0.9;
-    padding: 1em;
-  }
+  @include overlay(1.5rem);
+  background-color: darkorange;
+  color: white;
+  opacity: 0.9;
+  padding: 1em;
+}
 
-h1{  
-font-family: 'Carter One', cursive;
-font-weight: bolder;
-font-size: 55px;
+h1 {
+  font-family: 'Carter One', cursive;
+  font-weight: bolder;
+  font-size: 55px;
 }
 
 
 header {
-     text-align: center; 
-  }
+  text-align: center;
+}
 
 * {
-    /* box-sizing: 0px; */
-    font-family: 'Assistant', sans-serif; 
+  /* box-sizing: 0px; */
+  font-family: 'Assistant', sans-serif;
 }
