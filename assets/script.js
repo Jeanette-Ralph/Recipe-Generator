@@ -15,53 +15,25 @@ var appKeySpoon = "01d7fcde51554f22ba68c6613dcd1536";
 var submitBtn = document.querySelector("#search-btn");
 var clearBtn = document.querySelector("#clear-btn");
 
+//Function to fetch data from Edamam API
 function getAPI(event) {
     event.preventDefault();
-    var q = $('#q').val(); // #q renamed from 'ingredients-list'
+    var q = $('#q').val(); 
     var queryURL = endpointURL + "q=" + q + "&app_id=" + appID + '&app_key=' + appKey + '&from=0&to=4'; // last param specifically calling for 4 recipes
     fetch(queryURL)
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data);
-            displayRecipes(data.hits); 
+            displayRecipes(data.hits);
         });
-
-
-    //local storage//
-    //Add While Loop to make the search results keep populating
-    // getting input from the input tag id 
-    var input = document.getElementById('q').value;
-
-    // setting items to a key and value in local storage
-    localStorage.setItem('ingredients-list', input);
-
-    // retrieving thee item from local storage
-    input = localStorage.getItem('ingredients-list');
-
-    // var for div where the ingredients will get appended to
-    var searchHistory = document.getElementById('ingredient-search-history');
-
-    // creating li element to append ingredients from local storage to
-    var ingredientsList = document.createElement('li');
-
-    // adding text content to the input 
-    ingredientsList.textContent = input;
-
-    // appending ingredientsList to the main div 
-    searchHistory.appendChild(ingredientsList);
-
-    // need it to stay on page
-
-    //make ingredients list clickable so you can retrive that same search result
-
 }
 
+// Refresh Page Function
 var refreshBtn = document.getElementById('refresh-btn');
 function refreshPage() {
     var reload = window.location.reload();
 }
-
+ //Display Recipes Function - added async and await to make sure that substitutions are appended to the correct recipe
 async function displayRecipes(fourRecipes) {
     console.log(fourRecipes)
     for (var i = 0; i < 4; i++) {
@@ -73,7 +45,6 @@ async function displayRecipes(fourRecipes) {
         var ingredientList;
         var recipeImageLocation = fourRecipes[i].recipe.image;
         recipeName.innerText = fourRecipes[i].recipe.label;
-        console.log(recipeName.innerText);
         recipeName.setAttribute("href", fourRecipes[i].recipe.url);
         recipeName.setAttribute('target', '_blank');
         ingredientList = fourRecipes[i].recipe.ingredientLines;
@@ -90,8 +61,6 @@ async function displayRecipes(fourRecipes) {
             .then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(recipeName.innerText)
-                console.log(data);
                 if (data.status === "success") {
                     displaySubstitutions(data, card);
                 }
@@ -101,6 +70,8 @@ async function displayRecipes(fourRecipes) {
     }
 
 }
+
+//Function to display substitutions
 function displaySubstitutions(subs, card) {
     var substoDisplay = document.createElement('p');
     substoDisplay.setAttribute("class", "alternatives");
