@@ -24,16 +24,16 @@ Links to Deployed Application and Repository:
 Screenshots of Deployed Application:
 
 Application Landing Page:
-![ScreenShot](/screenshots/)
+![ScreenShot](./screenshots/screenshot1.png)
 
 First set of searched ingredients:
-![ScreenShot](/screenshots/)
+![ScreenShot](/screenshots/screenshot2.png)
 
 Second set of searched ingredients:
-![ScreenShot](/screenshots/)
+![ScreenShot](/screenshots/screenshot3.png)
 
 Ingredients-List saved to local storage as an array:
-![ScreenShot](/screenshots/)
+![ScreenShot](/screenshots/screenshot4.png)
 
 
 
