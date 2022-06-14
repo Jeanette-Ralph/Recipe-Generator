@@ -7,7 +7,7 @@ var appID = "9b63d55f";
 
 //Spoonacular API
 var endpointURLSpoonacular = "https://api.spoonacular.com/food/ingredients/substitutes?";
-var appKeySpoon = "01d7fcde51554f22ba68c6613dcd1536";
+var appKeySpoon = "1b359d0128f940919c6585bbcb7e80c1";
 
 //primary API Key = 1b359d0128f940919c6585bbcb7e80c1
 //secondary API Key = 01d7fcde51554f22ba68c6613dcd1536
