@@ -15,6 +15,7 @@ var appKeySpoon = "01d7fcde51554f22ba68c6613dcd1536";
 var submitBtn = document.querySelector("#search-btn");
 var clearBtn = document.querySelector("#clear-btn");
 
+//Function to fetch data from Edamam API
 function searchHistory(q) {
 
     console.log(q);
@@ -66,25 +67,24 @@ function renderSearchHistory() {
 
 function getAPI(event) {
     event.preventDefault();
-    var q = $('#q').val(); // #q renamed from 'ingredients-list'
+    var q = $('#q').val(); 
     var queryURL = endpointURL + "q=" + q + "&app_id=" + appID + '&app_key=' + appKey + '&from=0&to=4'; // last param specifically calling for 4 recipes
     fetch(queryURL)
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data);
-            displayRecipes(data.hits); // feeds data specific to matching recipes to the display recipes function
-            searchHistory(q);
-
+            displayRecipes(data.hits);
         });
+            searchHistory(q);
+        };
 
-}
 
+// Refresh Page Function
 var refreshBtn = document.getElementById('refresh-btn');
 function refreshPage() {
     var reload = window.location.reload();
 }
-
+ //Display Recipes Function - added async and await to make sure that substitutions are appended to the correct recipe
 async function displayRecipes(fourRecipes) {
     console.log(fourRecipes)
     for (var i = 0; i < 4; i++) {
@@ -93,12 +93,12 @@ async function displayRecipes(fourRecipes) {
         var recipeImage = document.createElement('img');
         var recipeServes = document.createElement('p');
         var healthLabels = document.createElement('p');
+        var ingredientCount = document.createElement('p');
         recipeName.innerText = fourRecipes[i].recipe.label;
         recipeServes.innerText = "Servings: " + fourRecipes[i].recipe.yield;
         healthLabels.innerText = fourRecipes[i].recipe.healthLabels[0, 1, 2, 3, 4, 5, 6, 7]; // returns some health labels we did not ask for
         var recipeImageLocation = fourRecipes[i].recipe.image;
         recipeName.innerText = fourRecipes[i].recipe.label;
-        console.log(recipeName.innerText);
         recipeName.setAttribute("href", fourRecipes[i].recipe.url);
         recipeName.setAttribute('target', '_blank');
         ingredientList = fourRecipes[i].recipe.ingredientLines;
@@ -115,8 +115,6 @@ async function displayRecipes(fourRecipes) {
             .then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(recipeName.innerText)
-                console.log(data);
                 if (data.status === "success") {
                     displaySubstitutions(data, card);
                 }
@@ -126,6 +124,8 @@ async function displayRecipes(fourRecipes) {
     }
 
 }
+
+//Function to display substitutions
 function displaySubstitutions(subs, card) {
     var substoDisplay = document.createElement('p');
     substoDisplay.setAttribute("class", "alternatives");

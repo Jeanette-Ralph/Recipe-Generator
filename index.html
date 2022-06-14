@@ -31,8 +31,11 @@
                         class='button is-rounded mx-2 is-link is-success is-light is-focused is-outlined media-center'
                         onClick="window.location.reload();" type="button" id="refresh-btn">Refresh</button>
                     <!-- HTML code for adding refresh button -->
-                    <h3 id="ingredient-search-history">
-                        Recently Searched:</h3>
+                    <h3>Recently Searched:
+                        <div id="ingredient-search-history"></div>
+                    </h3>
+                   
+                    <!-- use local storage to append saved ingredients here -->
                 </form>
 
             </div>
@@ -46,7 +49,7 @@
                 </article>
             </div>
         </div>
-        <!-- use local storage to append saved ingredients here -->
+        
     </div>
     </div>
 

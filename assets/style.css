@@ -57,12 +57,12 @@ header {
   text-align: center;
 }
 
-<<<<<<< HEAD * {
+* {
   /* box-sizing: 0px; */
   font-family: 'Assistant', sans-serif;
 }
 
-=======#ingredient-search-history li {
+#ingredient-search-history li {
   list-style: none;
   font-family: 'Assistant', sans-serif;
 }
@@ -71,5 +71,3 @@ header {
   font-size: 13px;
   word-wrap: break-word;
 }
-
->>>>>>>main
