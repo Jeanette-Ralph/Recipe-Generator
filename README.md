@@ -17,7 +17,7 @@ Technologies Used:
 
 Links to Deployed Application and Repository:
 
-[Deployed Application](https://alexap2022.github.io/RecipEat/) <br>
+<!--- [Deployed Application](https://alexap2022.github.io/RecipEat/) <br> -->
 [Git Hub Repository](https://github.com/AlexaP2022/RecipEat/)
 
 
